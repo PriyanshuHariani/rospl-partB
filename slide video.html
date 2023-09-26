@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Slider</title>
+    <style>
+
+body {
+            background-image: url('WhatsApp Image 2023-09-26 at 8.59.51 PM.jpeg'); /* Replace 'background.jpg' with your image file path */
+            background-size: 1500px; /* Cover the entire viewport */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fixed background so it doesn't scroll with content */
+            background-position: center center; /* Center the image horizontally and vertically */
+            
+        }
+
+        /* Apply CSS styles for the video container */
+        .video-container {
+            width: 640px; /* Set the desired width */
+            height: 320px; /* Set the desired height */
+            overflow: hidden;
+            position: relative;
+            margin-left: 900px;
+            margin-top: 60px;
+        }
+
+        /* Style the video element */
+        .video-container video {
+            width: 100%; /* Make the video fill its container */
+            height: 100%;
+
+        }
+
+        .video-description{
+
+            margin-left: 900px;
+            margin-top: 250px;
+            
+        }
+
+        .video-description2{
+
+            margin-left: 900px;
+            margin-top: 100px;
+        }
+
+
+        /* Style for navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="video-description">
+        MOST VIEWED VIDEOS:-
+   </h1>
+
+    <div class="video-container">
+        <video controls>
+            <source src="shani-grahas-hidden-gifts-unlimited-wealth-and-success-rajarshi-n-explains.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="prev" onclick="prevVideo()">Previous</div>
+        <div class="next" onclick="nextVideo()">Next</div>
+    </div>
+
+    <h2 class="video-description2">
+        MOST VIEWED VIDEOS.
+    </h2>
+    
+
+
+    <script>
+        const videos = [
+            'chinese-virus-theory-scientist-clears-the-conspiracies-around-covid-19-dr-anand-ranganathan.mp4', // Replace with actual video sources
+            'what-makes-hanuman-chalisa-so-powerful-tantric-explains.mp4',
+            'designer-babies-are-coming-soon-crispr-technology-explained-by-a-scientist.mp4'
+        ];
+        let currentVideoIndex = 0;
+
+        const videoElement = document.querySelector('video');
+
+        function loadVideo(index) {
+            videoElement.src = videos[index];
+            videoElement.load();
+        }
+
+        function prevVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+            loadVideo(currentVideoIndex);
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo(currentVideoIndex);
+        }
+
+        // Load the first video
+        loadVideo(currentVideoIndex);
+    </script>
+
+
+</body>
+</html>
